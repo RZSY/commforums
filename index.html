@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CommForums — Your Library's Community Forum</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">📚 <span>CommForums</span></div>
+
+    <div id="authBarGuest" class="auth-bar">
+      <button onclick="openAuthModal('login')">Log In</button>
+      <button onclick="openAuthModal('register')" class="secondary">Register</button>
+    </div>
+
+    <div id="authBarUser" class="auth-bar" style="display:none;">
+      <span id="authBarName"></span>
+      <button onclick="signOut()">Log Out</button>
+    </div>
+  </header>
+
+  <!-- AUTH MODAL -->
+  <div id="authOverlay" class="auth-overlay" onclick="closeAuthModal(event)">
+    <div class="auth-modal">
+      <div class="auth-tabs">
+        <button id="tabLogin" class="active" onclick="switchAuthTab('login')">Log In</button>
+        <button id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <div id="authPanelLogin">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <p id="loginError" class="auth-error"></p>
+        <button id="loginBtn" onclick="doLogin()">Sign In</button>
+      </div>
+
+      <div id="authPanelRegister" style="display:none;">
+        <input type="text" id="regUsername" placeholder="Display name" />
+        <input type="email" id="regEmail" placeholder="Email" />
+        <input type="password" id="regPassword" placeholder="Password (min 6 chars)" />
+        <p id="regError" class="auth-error"></p>
+        <button id="regBtn" onclick="doRegister()">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="forum-wrap">
+
+    <!-- Compose (shown when logged in) -->
+    <section id="forumCompose" class="forum-card" style="display:none;">
+      <h2>Start a Thread</h2>
+      <select id="postCategory">
+        <option value="general">General</option>
+        <option value="book-discussions">Book Discussions</option>
+        <option value="recommendations">Recommendations</option>
+        <option value="events">Events &amp; Programs</option>
+        <option value="library-help">Library Help</option>
+      </select>
+      <input type="text" id="postSubject" placeholder="Subject" maxlength="150" />
+      <textarea id="postBody" placeholder="What would you like to share with the community?" maxlength="1800"></textarea>
+      <div class="compose-footer">
+        <span id="charCount" class="hint">0 / 1800</span>
+        <button id="submitPostBtn" onclick="submitPost()">Post</button>
+      </div>
+    </section>
+
+    <!-- Gate (shown when logged out) -->
+    <section id="forumGate" class="forum-card gate">
+      <p>📖 Sign in to start or join a discussion.</p>
+      <button onclick="openAuthModal('login')">Log In / Register</button>
+    </section>
+
+    <!-- Tabs & sort -->
+    <div class="forum-controls">
+      <div class="forum-tabs">
+        <button class="forum-tab active" onclick="switchCategory('all', this)">All</button>
+        <button class="forum-tab" onclick="switchCategory('book-discussions', this)">Book Discussions</button>
+        <button class="forum-tab" onclick="switchCategory('recommendations', this)">Recommendations</button>
+        <button class="forum-tab" onclick="switchCategory('events', this)">Events</button>
+        <button class="forum-tab" onclick="switchCategory('library-help', this)">Library Help</button>
+        <button class="forum-tab" onclick="switchCategory('general', this)">General</button>
+      </div>
+      <div class="forum-sort">
+        <button class="forum-sort-btn active" onclick="setSort('new', this)">New</button>
+        <button class="forum-sort-btn" onclick="setSort('top', this)">Top</button>
+      </div>
+    </div>
+
+    <p id="postCountLabel" class="hint" style="margin: 0 0 10px;">0 threads</p>
+
+    <!-- Moderation Queue panel auto-inserts itself here (see script.js) -->
+
+    <div id="forumPosts"><div class="forum-loading">Loading…</div></div>
+
+  </main>
+
+  <div id="forum-toast" class="toast"></div>
+
+  <!-- Firebase compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

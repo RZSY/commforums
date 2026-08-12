@@ -1,0 +1,192 @@
+:root {
+  --brand: #2f6f4f;
+  --brand-dark: #234f38;
+  --bg: #faf8f3;
+  --card-bg: #ffffff;
+  --border: #e6ddc9;
+  --text: #2a2a26;
+  --muted: #7a7468;
+  --danger: #b5432f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--brand-dark);
+  color: white;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.auth-bar { display: flex; align-items: center; gap: 0.6rem; }
+.auth-bar span { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+
+button {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+button:hover { opacity: 0.9; }
+button.secondary { background: #8a7f5f; }
+
+.forum-wrap {
+  max-width: 760px;
+  margin: 1.5rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.forum-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.forum-card h2 { margin-top: 0; font-size: 1.05rem; }
+
+.forum-card.gate {
+  text-align: center;
+  padding: 1.75rem;
+}
+.forum-card.gate p { margin: 0 0 0.75rem; color: var(--muted); }
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: #fff;
+}
+textarea { min-height: 100px; resize: vertical; }
+
+.compose-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hint { color: var(--muted); font-size: 0.82rem; font-family: 'IBM Plex Mono', monospace; }
+
+/* Auth modal */
+.auth-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  align-items: center; justify-content: center;
+  z-index: 50;
+}
+.auth-overlay.open { display: flex; }
+.auth-modal {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 320px;
+}
+.auth-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.auth-tabs button { flex: 1; background: #eee; color: #444; }
+.auth-tabs button.active { background: var(--brand); color: white; }
+.auth-error { color: var(--danger); font-size: 0.8rem; min-height: 1em; }
+
+/* Tabs / sort */
+.forum-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.forum-tabs, .forum-sort { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.forum-tab, .forum-sort-btn {
+  background: #efe9d8;
+  color: var(--text);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+.forum-tab.active, .forum-sort-btn.active { background: var(--brand); color: white; }
+
+/* Posts */
+.forum-post {
+  display: grid;
+  grid-template-columns: 44px 1fr 60px;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.9rem;
+}
+.forum-post-vote { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.vote-btn { background: none; color: var(--muted); padding: 0.1rem; font-size: 0.8rem; }
+.vote-btn:hover { color: var(--brand); }
+.vote-score { font-family: 'IBM Plex Mono', monospace; font-weight: 600; }
+
+.forum-tag-pill {
+  display: inline-block;
+  background: #e4efe6;
+  color: var(--brand-dark);
+  font-size: 0.7rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.forum-post-subject { font-weight: 600; margin: 0.4rem 0 0.2rem; cursor: pointer; }
+.forum-post-subject:hover { color: var(--brand); }
+.forum-post-preview { margin: 0 0 0.5rem; color: #444; white-space: pre-wrap; }
+.forum-post-footer {
+  display: flex; gap: 0.75rem; align-items: center;
+  font-size: 0.78rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace;
+}
+.reply-toggle-btn { background: none; color: var(--brand); padding: 0; font-size: 0.78rem; }
+
+.forum-reply-count { text-align: center; color: var(--muted); font-size: 0.75rem; }
+.rcount-num { display: block; font-weight: 700; font-size: 1rem; color: var(--text); }
+
+.forum-replies-panel { grid-column: 1 / -1; display: none; }
+.forum-replies-panel.open { display: block; border-top: 1px solid var(--border); margin-top: 0.75rem; padding-top: 0.75rem; }
+.forum-reply-item { margin-bottom: 0.6rem; }
+.forum-reply-author-line { font-size: 0.75rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+.forum-reply-text { margin: 0.15rem 0 0; }
+.forum-reply-compose { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.forum-reply-compose input { margin-bottom: 0; }
+.reply-gate { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--muted); }
+.reply-gate-link { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+
+.forum-empty { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+.forum-empty-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.forum-loading { text-align: center; padding: 2rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+
+.toast {
+  position: fixed; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--brand-dark); color: white;
+  padding: 0.6rem 1.1rem; border-radius: 999px;
+  font-size: 0.85rem; opacity: 0; pointer-events: none;
+  transition: all 0.25s ease;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
