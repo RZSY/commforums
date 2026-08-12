@@ -14,20 +14,25 @@ var ADMIN_PASSWORD = 'nimda321';
 // STEP 1 — REPLACE WITH YOUR FIREBASE CONFIG
 // (same config you used in script.js)
 // ──────────────────────────────────────────────
-const firebaseConfig = {
-  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
-  authDomain: "commforums.firebaseapp.com",
-  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "commforums",
-  storageBucket: "commforums.firebasestorage.app",
-  messagingSenderId: "990280192388",
-  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
-  measurementId: "G-933WGHKX6S"
+var firebaseConfig = {
+    apiKey:            "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+    authDomain:        "commforums.firebaseapp.com",
+    databaseURL:       "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId:         "commforums",
+    storageBucket:     "commforums.firebasestorage.app",
+    messagingSenderId: "990280192388",
+    appId:             "1:990280192388:web:caa73c921e5a6abd13cdd1",
+    measurementId:     "G-933WGHKX6S"
 };
-
 
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
+
+// Warn early (in the console) if the placeholder config was never replaced —
+// this is the #1 reason the dashboard shows no data.
+if (firebaseConfig.apiKey === 'YOUR_API_KEY') {
+    console.warn('admin.js still has placeholder Firebase config — paste your real config from Firebase console → Project settings → Your apps.');
+}
 
 // ──────────────────────────────────────────────
 // State
@@ -93,18 +98,34 @@ function attachListeners() {
         allPosts = snap.val() || {};
         updateStats();
         renderCurrentTab();
-    });
+    }, function (err) { showLoadError('posts', err); });
 
     db.ref('forum/replies').on('value', function (snap) {
         allReplies = snap.val() || {};
         updateStats();
         renderCurrentTab();
-    });
+    }, function (err) { showLoadError('replies', err); });
 
     db.ref('users').on('value', function (snap) {
         allUsers = snap.val() || {};
         updateStats();
         renderCurrentTab();
+    }, function (err) { showLoadError('users', err); });
+}
+
+// Surfaces a real error (permission-denied, bad config, offline, etc.)
+// in the panels instead of leaving them stuck on "Loading…" forever.
+function showLoadError(what, err) {
+    console.error('Failed to load ' + what + ':', err);
+    var msg =
+        '<div class="admin-empty" style="color:var(--danger);">' +
+        '⚠ Could not load ' + what + ': ' + escAdmin(err.message || String(err)) + '<br>' +
+        '<span style="font-size:0.8rem;">Check that admin.js has your real Firebase config, ' +
+        'and that database.rules.json has been published in the Firebase console.</span>' +
+        '</div>';
+    ['adminQueueList', 'adminPostsList', 'adminUsersList'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = msg;
     });
 }
 
