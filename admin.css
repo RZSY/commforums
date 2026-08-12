@@ -1,0 +1,132 @@
+/* ── Admin login screen ───────────────────────────── */
+.admin-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.admin-login-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 320px;
+  text-align: center;
+}
+.admin-login-card .brand {
+  justify-content: center;
+  color: var(--brand-dark);
+  margin-bottom: 0.25rem;
+}
+.admin-login-card input {
+  text-align: left;
+}
+.admin-login-card button {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+/* ── Dashboard layout ─────────────────────────────── */
+.admin-wrap {
+  max-width: 960px;
+  margin: 1.5rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.admin-stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+.admin-stat-num {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+.admin-stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.admin-tab {
+  background: #efe9d8;
+  color: var(--text);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+.admin-tab.active { background: var(--brand); color: white; }
+
+.admin-panel-controls { margin-bottom: 0.75rem; }
+.admin-panel-controls input { margin-bottom: 0; }
+
+/* ── Rows (posts / replies / users) ───────────────── */
+.admin-row {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.7rem;
+}
+.admin-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+.admin-row-title { font-weight: 600; }
+.admin-row-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.admin-row-body {
+  color: #444;
+  white-space: pre-wrap;
+  margin: 0 0 0.65rem;
+  font-size: 0.92rem;
+}
+.admin-row-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.admin-row-actions button { font-size: 0.78rem; padding: 0.4rem 0.8rem; }
+.admin-row-actions button.danger { background: var(--danger); }
+.admin-row-actions button.neutral { background: #8a7f5f; }
+
+.admin-status-pill {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.admin-status-approved { background: #e4efe6; color: var(--brand-dark); }
+.admin-status-flagged  { background: #f7e3df; color: var(--danger); }
+
+.admin-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .admin-stats { grid-template-columns: repeat(2, 1fr); }
+}

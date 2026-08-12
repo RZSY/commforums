@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CommForums — Admin Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="admin.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="adminLoginScreen" class="admin-login-wrap">
+    <div class="admin-login-card">
+      <div class="brand">📚 <span>CommForums Admin</span></div>
+      <p class="hint" style="margin-bottom:1rem;">Sign in to manage posts, replies, and users.</p>
+      <input type="text" id="adminIdInput" placeholder="Admin ID" autocomplete="username" />
+      <input type="password" id="adminPassInput" placeholder="Password" autocomplete="current-password" />
+      <p id="adminLoginError" class="auth-error"></p>
+      <button id="adminLoginBtn" onclick="doAdminLogin()">Sign In</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="adminDashboard" style="display:none;">
+
+    <header class="site-header">
+      <div class="brand">📚 <span>CommForums Admin</span></div>
+      <div class="auth-bar">
+        <button class="secondary" onclick="adminLogout()">Log Out</button>
+      </div>
+    </header>
+
+    <main class="admin-wrap">
+
+      <div class="admin-stats">
+        <div class="admin-stat-card">
+          <span class="admin-stat-num" id="statTotalPosts">0</span>
+          <span class="admin-stat-label">Total posts</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-num" id="statFlagged">0</span>
+          <span class="admin-stat-label">Flagged items</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-num" id="statTotalReplies">0</span>
+          <span class="admin-stat-label">Total replies</span>
+        </div>
+        <div class="admin-stat-card">
+          <span class="admin-stat-num" id="statTotalUsers">0</span>
+          <span class="admin-stat-label">Registered users</span>
+        </div>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('queue', this)">Moderation Queue</button>
+        <button class="admin-tab" onclick="switchAdminTab('posts', this)">All Posts</button>
+        <button class="admin-tab" onclick="switchAdminTab('users', this)">Users</button>
+      </div>
+
+      <!-- Moderation Queue -->
+      <section id="adminPanelQueue" class="admin-panel">
+        <div id="adminQueueList"><p class="hint">Loading…</p></div>
+      </section>
+
+      <!-- All Posts -->
+      <section id="adminPanelPosts" class="admin-panel" style="display:none;">
+        <div class="admin-panel-controls">
+          <input type="text" id="postsFilterInput" placeholder="Filter by subject or author…" oninput="renderAdminPosts()" />
+        </div>
+        <div id="adminPostsList"><p class="hint">Loading…</p></div>
+      </section>
+
+      <!-- Users -->
+      <section id="adminPanelUsers" class="admin-panel" style="display:none;">
+        <div class="admin-panel-controls">
+          <input type="text" id="usersFilterInput" placeholder="Filter by username or email…" oninput="renderAdminUsers()" />
+        </div>
+        <div id="adminUsersList"><p class="hint">Loading…</p></div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="admin-toast" class="toast"></div>
+
+  <!-- Firebase compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
