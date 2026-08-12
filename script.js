@@ -8,15 +8,15 @@
 // STEP 1 — REPLACE WITH YOUR FIREBASE CONFIG
 // Firebase Console → Project Settings → Your apps
 // ──────────────────────────────────────────────
-const firebaseConfig = {
-  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
-  authDomain: "commforums.firebaseapp.com",
-  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "commforums",
-  storageBucket: "commforums.firebasestorage.app",
-  messagingSenderId: "990280192388",
-  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
-  measurementId: "G-933WGHKX6S"
+var firebaseConfig = {
+    apiKey:            "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+    authDomain:        "commforums.firebaseapp.com",
+    databaseURL:       "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId:         "commforums",
+    storageBucket:     "commforums.firebasestorage.app",
+    messagingSenderId: "990280192388",
+    appId:             "1:990280192388:web:caa73c921e5a6abd13cdd1",
+    measurementId:     "G-933WGHKX6S"
 };
 
 // ──────────────────────────────────────────────
