@@ -14,15 +14,150 @@ var ADMIN_PASSWORD = 'nimda321';
 // STEP 1 — REPLACE WITH YOUR FIREBASE CONFIG
 // (same config you used in script.js)
 // ──────────────────────────────────────────────
-var firebaseConfig = {
-    apiKey:            "YOUR_API_KEY",
-    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL:       "https://YOUR_PROJECT_ID-default-rtdb.firebasedatabase.app",
-    projectId:         "YOUR_PROJECT_ID",
-    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId:             "YOUR_APP_ID"
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
 };
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB_9JF7v-gMN4_q176PUgZjaGy6RjWhV4Y",
+  authDomain: "commforums.firebaseapp.com",
+  databaseURL: "https://commforums-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "commforums",
+  storageBucket: "commforums.firebasestorage.app",
+  messagingSenderId: "990280192388",
+  appId: "1:990280192388:web:caa73c921e5a6abd13cdd1",
+  measurementId: "G-933WGHKX6S"
+};
+
+
 
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
